@@ -1,0 +1,226 @@
+   1  ls
+    2  sudo apt-get update
+    3  sudo apt-get install -y ca-certificates curl gnupg
+    4  sudo mkdir -p /etc/apt/keyrings
+    5  NODE_MAJOR=20
+    6  echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+    7  sudo apt-get update
+    8  sudo apt-get install nodejs -y
+    9  npm install web3
+   10  npm install --save-dev @nomiclabs/hardhat-ethers ethers @nomiclabs/hardhat-waffle ethereum-waffle chai
+   11  history
+   12  npx create-react-app voting
+   13  ls
+   14  cd voting
+   15  npx hardhat
+   16  ls
+   17  vi hardhat.config.js
+   18  cp hardhat.config.js hardhat.config.js_for_command_line_prompt_testing
+   19  ls
+   20  cd contracts
+   21  ls
+   22  vi Lock.sol
+   23  vi Voting.sol
+   24  cd ..
+   25  npx hardhat node --hostname localhost
+
+
+#### try from the command prompt!!!!!!!
+
+Compiled 2 Solidity files successfully (evm target: paris).
+Welcome to Node.js v20.15.0.
+Type ".help" for more information.
+> const signers = await ethers.getSigners();
+undefined
+> await ethers.provider.getBalance("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
+10000000000000000000000n
+> const contract =  await ethers.getContractFactory("Voting")
+undefined
+> const cd = await contract.deploy()
+undefined
+> cd
+BaseContract {
+  target: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
+  interface: Interface {
+    fragments: [
+      [ConstructorFragment],
+      [FunctionFragment],
+      [FunctionFragment],
+      [FunctionFragment],
+      [FunctionFragment],
+      [FunctionFragment],
+      [FunctionFragment]
+    ],
+    deploy: ConstructorFragment {
+      type: 'constructor',
+      inputs: [],
+      payable: false,
+      gas: null
+    },
+    fallback: null,
+    receive: false
+  },
+  runner: HardhatEthersSigner {
+    _gasLimit: 30000000,
+    address: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+    provider: HardhatEthersProvider {
+      _hardhatProvider: [LazyInitializationProviderAdapter],
+      _networkName: 'localhost',
+      _blockListeners: [],
+      _transactionHashListeners: Map(0) {},
+      _eventListeners: []
+    }
+  },
+  filters: {},
+  fallback: null,
+  [Symbol(_ethersInternal_contract)]: {}
+}
+> cd.voteForCandidate("Amber")
+Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 3058,
+  [Symbol(trigger_async_id_symbol)]: 15
+}
+> cd.voteForCandidate("Amber")
+Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 3271,
+  [Symbol(trigger_async_id_symbol)]: 15
+}
+> cd.voteForCandidate("Johnny")
+Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 3484,
+  [Symbol(trigger_async_id_symbol)]: 15
+}
+> cd.validCandidate("Johnny")
+Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 3739,
+  [Symbol(trigger_async_id_symbol)]: 15
+}
+> cd.validCandidate("Daveo")
+Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 3849,
+  [Symbol(trigger_async_id_symbol)]: 15
+}
+> const a = cd.validCandidate("Daveo")
+undefined
+> a
+Promise {
+  false,
+  [Symbol(async_id_symbol)]: 3987,
+  [Symbol(trigger_async_id_symbol)]: 15
+}
+> const a = cd.getCandidateList()
+Uncaught SyntaxError: Identifier 'a' has already been declared
+> const b = cd.getCandidateList()
+undefined
+> b
+Promise {
+  Result(2) [ 'Johnny', 'Amber' ],
+  [Symbol(async_id_symbol)]: 4168,
+  [Symbol(trigger_async_id_symbol)]: 15
+}
+> cd.totalVotesFor("Johnny")
+Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 4368,
+  [Symbol(trigger_async_id_symbol)]: 15
+}
+> val c = cd.totalVotesFor("Johnny")
+val c = cd.totalVotesFor("Johnny")
+    ^
+
+Uncaught SyntaxError: Unexpected identifier 'c'
+> c
+Uncaught ReferenceError: c is not defined
+> const c
+...
+...
+...
+...
+...
+> const c  = cd.totalVotesFor("Johnny")
+undefined
+> c
+Promise {
+  1n,
+  [Symbol(async_id_symbol)]: 4581,
+  [Symbol(trigger_async_id_symbol)]: 15
+}
+> const d  = cd.totalVotesFor("Amber")
+undefined
+> d
+Promise {
+  2n,
+  [Symbol(async_id_symbol)]: 4756,
+  [Symbol(trigger_async_id_symbol)]: 15
+}
+>
+
+
+
+ubuntu@ip-172-31-19-170:~/voting$ npx hardhat node --hostname  ec2-35-164-183-115.us-west-2.compute.amazonaws.com
+
+ubuntu@ip-172-31-19-170:~/voting$ ^C
+ubuntu@ip-172-31-19-170:~/voting$ npx   hardhat run scripts/deploy.js --network localhost
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   26  ls
+   27  vi hardhat.config.js
+   28  ls
+   29  mkdir scripts
+   30  cd scripts/
+   31  vi deploy.js
+   32  cd ..
+   33  cd src
+   34  ls
+   35  vi App.js
+   36  cd ..
+   37  ls
+   38  ls
+   39  npx hardhat console --network localhost
+   40  cd voting/
+   41  npx hardhat console --network localhost
+
+
+
+
+
+
+
+
+
+
+
+
+   42  npx   hardhat run scripts/deploy.js --network localhost
+   43  npm start
+   44  ls
+   45  cd voting
+   46  npx hardhat node --hostname  ec2-35-164-183-115.us-west-2.compute.amazonaws.com
+   47  ls
+   48  cd voting
