@@ -234,6 +234,21 @@ Promise {
 }
 >
 
+npx hardhat init
+
+# double check dns
+vi hardhat.config.js
+
+
+# you need to create the directory separate...
+vi contracts/Voting.sol
+
+# double check dns
+vi src/App.js
+
+vi scripts/deploy.js
+
+
 
 
 ubuntu@ip-172-31-19-170:~/voting$ npx hardhat node --hostname  ec2-35-164-183-115.us-west-2.compute.amazonaws.com
