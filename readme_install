@@ -25,6 +25,10 @@
    25  npx hardhat node --hostname localhost
 
 
+npx hardhat node --hostname localhost    # make sure to run as localhost vs the dns
+npx hardhat console --network localhost
+
+
 #### try from the command prompt!!!!!!!
 
 Compiled 2 Solidity files successfully (evm target: paris).
