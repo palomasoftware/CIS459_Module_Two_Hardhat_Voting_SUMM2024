@@ -15,6 +15,20 @@
    15  npx hardhat
    16  ls
    17  vi hardhat.config.js
+
+
+
+// content of hardhat.config.js  ..... only for the command line execution...
+
+require("@nomicfoundation/hardhat-toolbox");
+
+/** @type import('hardhat/config').HardhatUserConfig */
+module.exports = {
+  solidity: "0.8.24",
+};
+
+
+
    18  cp hardhat.config.js hardhat.config.js_for_command_line_prompt_testing
    19  ls
    20  cd contracts
