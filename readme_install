@@ -303,6 +303,8 @@ ubuntu@ip-172-31-19-170:~/voting$ npx   hardhat run scripts/deploy.js --network 
 
 
 
+/home/ubuntu/votingtwo   npx hardhat node --hostname ec2-35-86-73-162.us-west-2.compute.amazonaws.com
+
 
 
 
